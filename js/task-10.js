@@ -6,11 +6,13 @@ const boxes = document.querySelector("#boxes");
 btnCreate.addEventListener("click", () => createBoxes(input.value));
 btnDestroy.addEventListener("click", destroyBoxes);
 
+let boxesDiv = [];
+
 function createBoxes(amount) {
   const divSize = 30;
   const divStep = 10;
 
-  let boxesDiv = [];
+  destroyBoxes();
 
   for (let i = 0; i < amount; i += 1) {
     const size = divSize + i * divStep;
@@ -25,6 +27,7 @@ function createBoxes(amount) {
 
 function destroyBoxes() {
   boxes.innerHTML = "";
+  boxesDiv = [];
 }
 
 function getRandomHexColor() {
